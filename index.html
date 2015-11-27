@@ -12,10 +12,10 @@
     <body ng-controller="lights">
         <div>
             <svg viewbox='0 0 800 400'>
-                <circle cx='50' cy='50' r='{{radius}}'/>
-                <circle class='red' cx='50' cy='150' r='{{radius}}' ng-show='isOn'/>
-                <circle cx='150' cy='50' r='{{radius}}'/>
-                <circle cx='150' cy='150' r='{{radius}}'/>
+                <circle cx='50' cy='50' ng-attr-r='{{radius}}'/>
+                <circle class='red' cx='50' cy='150' ng-attr-r='{{radius}}' ng-show='isOn'/>
+                <circle cx='150' cy='50' ng-attr-r='{{radius}}'/>
+                <circle cx='150' cy='150' ng-attr-r='{{radius}}'/>
             </svg>
         </div>
         <div>
