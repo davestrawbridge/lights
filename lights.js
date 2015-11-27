@@ -4,7 +4,7 @@ app.controller('lights', ['$scope', '$interval', function ($scope, $interval) {
     
     var cancel;
     $scope.isOn = 0;
-    $scope.radius = 5;
+    $scope.radius = 50;
     
     $scope.start = function() {
         cancel = $interval(function() {
