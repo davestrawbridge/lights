@@ -14,7 +14,7 @@ app.controller('lights', ['$scope', '$interval', function ($scope, $interval) {
             else
                 $scope.isOn = 1;
                 
-        }, 500);
+        }, 1000);
     }
 
 }]); 
