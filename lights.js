@@ -9,7 +9,7 @@ app.controller('lights', ['$scope', '$interval', function ($scope, $interval) {
     $scope.start = function() {
         cancel = $interval(function() {
             
-            $scope.isOn = !isOn;
+            $scope.isOn = !($scope.isOn);
         }, 2000);
     }
 
