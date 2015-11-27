@@ -3,14 +3,18 @@ var app = angular.module('app', []);
 app.controller('lights', ['$scope', '$interval', function ($scope, $interval) {
     
     var cancel;
-    $scope.isOn = false;
-    $scope.radius = 10;
+    $scope.isOn = 0;
+    $scope.radius = 5;
     
     $scope.start = function() {
         cancel = $interval(function() {
-            
-            $scope.isOn = !($scope.isOn);
-        }, 2000);
+
+            if ($scope.isOn < 4)
+                $scope.isOn = $scope.isOn + 1;
+            else
+                $scope.isOn = 1;
+                
+        }, 500);
     }
 
 }]); 
