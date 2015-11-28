@@ -2,28 +2,59 @@
     <head>
         <script src="angular.min.js"></script>
         <script src="lights.js"></script>
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <style>
+            /* version 1
             circle { opacity: 0.2;}
-            circle.red { fill : red;}
-            circle.green { fill : green;}
-            circle.blue { fill : blue;}
-            circle.yellow { fill : yellow;}
             circle.on { opacity: 1;}
+            */
+            /* version 2 */
+            circle { display: none;}
+            circle.on { display: block;}
+            
+            
+            button {
+              position: relative;
+              vertical-align: top;
+              width: 200px;
+              height: 60px;
+              padding: 0;
+              margin: 30px;
+              font-size: 22px;
+              color: white;
+              text-align: center;
+              text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+              /*background: #f39c12;*/
+              background: #7aba20;
+              border: 0;
+                border-radius: 5px;
+              cursor: pointer;
+                /*
+              border-bottom: 2px solid #517d14;
+              -webkit-box-shadow: inset 0 -2px #517d14;
+              box-shadow: inset 0 -2px #517d14;
+                */
+            }
+            button:active {
+              top: 1px;
+              outline: none;
+              -webkit-box-shadow: none;
+              box-shadow: none;
+            }
+
         </style>
     </head>
     <body ng-controller="lights">
         <div>
             <svg width='100%' height='400'>
                 <rect x='0' y='0' width='400' height='400' fill='#CCC'/>
-                <circle class='blue' cx='100' cy='100' ng-attr-r='{{radius}}' ng-class='{on: isOn == 1}'/>
-                <circle class='red' cx='200' cy='100' ng-attr-r='{{radius}}' ng-class='{on: isOn == 2}'/>
-                <circle class='green' cx='200' cy='200' ng-attr-r='{{radius}}' ng-class='{on: isOn == 3}'/>
-                <circle class='yellow' cx='100' cy='200' ng-attr-r='{{radius}}' ng-class='{on: isOn == 4}'/>
+                <circle fill='blue' cx='100' cy='100' ng-attr-r='{{radius}}' ng-class='{on: isOn == 1}'/>
+                <circle fill='red' cx='200' cy='100' ng-attr-r='{{radius}}' ng-class='{on: isOn == 2}'/>
+                <circle fill='green' cx='200' cy='200' ng-attr-r='{{radius}}' ng-class='{on: isOn == 3}'/>
+                <circle fill='yellow' cx='100' cy='200' ng-attr-r='{{radius}}' ng-class='{on: isOn == 4}'/>
             </svg>
         </div>
         <div>
-            <button class="btn btn-default" ng-click="start()">Start</button>
+            <button ng-click="start()">Start</button>
         </div>
     </body>
 </html>
