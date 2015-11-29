@@ -3,48 +3,25 @@
     <head>
         <script src="angular.min.js"></script>
         <script src="lights.js"></script>
+        <link rel="stylesheet" type="text/css" href="styles.css">
         <style>
             circle { display: none;}
             circle.on { display: block;}
-            
-            button {
-                position: relative;
-                vertical-align: top;
-                width: 150px;
-                height: 60px;
-                padding: 0;
-                margin: 20px;
-                font-size: 22px;
-                color: white;
-                text-align: center;
-                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
-                background: #7aba20;
-                border: 0;
-                border-radius: 5px;
-                cursor: pointer;
-            }
-
-            button:active {
-                top: 1px;
-                outline: none;
-                -webkit-box-shadow: none;
-                box-shadow: none;
-            }
         </style>
     </head>
+
     <body ng-controller="lights">
+        <svg width='100%' height='400'>
+            <rect x='0' y='0' rx='40' ry='40' width='400' height='400' fill='#CCC'></rect>
+            <circle fill='blue' cx='100' cy='100' r='75' ng-class='{on: isOn == 1}'></circle>
+            <circle fill='red' cx='300' cy='100' r='75' ng-class='{on: isOn == 2}'></circle>
+            <circle fill='green' cx='300' cy='300' r='75' ng-class='{on: isOn == 3}'></circle>
+            <circle fill='yellow' cx='100' cy='300' r='75' ng-class='{on: isOn == 4}'></circle>
+        </svg>
+
         <div>
-            <svg width='100%' height='400'>
-                <rect x='0' y='0' rx='40' ry='40' width='400' height='400' fill='#CCC'></rect>
-                <circle fill='blue' cx='100' cy='100' r='75' ng-class='{on: isOn == 1}'></circle>
-                <circle fill='red' cx='300' cy='100' r='75' ng-class='{on: isOn == 2}'></circle>
-                <circle fill='green' cx='300' cy='300' r='75' ng-class='{on: isOn == 3}'></circle>
-                <circle fill='yellow' cx='100' cy='300' r='75' ng-class='{on: isOn == 4}'></circle>
-            </svg>
-        </div>
-        <div>
-            <button ng-click="start()">Start</button>
-            <button ng-click="stop()">Stop</button>
+            <button ng-click="start()" ng-disabled='isRunning()'>Start</button>
+            <button ng-click="stop()" ng-disabled='!isRunning()'>Stop</button>
         </div>
     </body>
 </html>
